@@ -8,8 +8,7 @@ This is a simple UNIX command interpreter based on bash and Sh.
 
 ### Invocation
 
-Usage: **Simple_Shell** 
-Simple_Shell is started with the standard input connected to the terminal. To start, compile all .c located in this repository by using this command: 
+**Simple_Shell** is started with the standard input connected to the terminal. To start, compile all .c located in this repository by using this command: 
 ```
 gcc -Wall -Werror -Wextra -pedantic *.c -o simple_shell
 ./simple_shell
