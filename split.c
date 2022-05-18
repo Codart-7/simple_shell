@@ -83,7 +83,7 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
 
 	loop_sep = 1;
 	ls_s = *list_s;
-	ls_l - *list_l;
+	ls_l = *list_l;
 
 	while (ls_s != NULL && loop_sep)
 	{
@@ -99,7 +99,7 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
 			if (ls_s->separator == '|' || ls_s->separator == ';')
 				loop_sep = 0;
 			if (ls_s->separator == '&')
-				ls->l = ls_l->next, ls_s = ls_s->next;
+				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		if (ls_s != NULL && !loop_sep)
 			ls_s = ls_s->next;
@@ -127,11 +127,11 @@ int split_commands(data_shell *datash, char *input)
 	add_nodes(&head_s, &head_l, input);
 
 	list_s = head_s;
-	lsit_l = head_l;
+	list_l = head_l;
 
 	while (list_l != NULL)
 	{
-		datash->input = list->line;
+		datash->input = list_l->line;
 		datash->args = split_line(datash->input);
 		loop = exec_line(datash);
 		free(datash->args);
